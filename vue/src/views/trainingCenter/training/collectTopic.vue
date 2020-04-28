@@ -174,7 +174,7 @@ export default {
   z-index: 2;
   background-color: white;
   button {
-    width: 40%;
+    width: 40%; 
     height: 1rem;
     margin-bottom: 0.1rem;
   }
