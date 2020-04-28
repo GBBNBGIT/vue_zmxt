@@ -14,7 +14,12 @@ import Plugin from './plugin'
 import '@/plugin/flexible/flexible.js'
 Vue.use(Plugin)
 Vue.use(Mint);
+//兼容性问题
+import 'babel-polyfill'
+import Es6Promise from 'es6-promise'
+Es6Promise.polyfill()
 Vue.config.productionTip = false
+
 
 /* eslint-disable no-new */
 new Vue({
