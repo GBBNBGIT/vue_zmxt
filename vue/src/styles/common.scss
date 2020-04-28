@@ -1,0 +1,292 @@
+/* 左浮动 */
+
+.left {
+  float: left;
+}
+
+/* 有浮动 */
+
+.right {
+  float: right;
+}
+
+/* 清除浮动 */
+
+.clear-fix:after {
+  content: ' ';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+/*************显示隐藏*************/
+
+/* 显示 */
+
+.show {
+  display: block;
+}
+
+/* 隐藏 */
+
+.hide {
+  display: none;
+}
+
+/*************盒子类型*************/
+
+/* block */
+
+.block {
+  display: block;
+}
+
+/* inline */
+
+.inline {
+  display: inline;
+}
+
+/* inline-block */
+
+.inline-block {
+  display: inline-block;
+}
+
+/************** flex布局 **************/
+
+/* 父元素 */
+
+.flex-wrapper {
+  display: flex;
+}
+
+/* 换行 */
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* 子元素 */
+
+.flex-item {
+  flex: 1;
+}
+
+/* 顺序从上到下 */
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+/* 顺序从左到右 */
+
+.flex-direction-row {
+  flex-direction: row;
+}
+
+/* 横向居中 */
+
+.flex-row-center {
+  justify-content: center;
+}
+
+/* 纵向居中 */
+
+.flex-column-center {
+  align-items: center;
+}
+
+/* 横向两边对齐，并且第一个元素前和最后一个元素后不留空白 */
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+/* 横向两边对齐，并且第一个元素前和最后一个元素后留有空白 */
+
+.flex-space-around {
+  justify-content: space-around;
+}
+
+/**************文字位置**************/
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.overflowView{
+  overflow: hidden;
+}
+
+/**************文字溢出省略号**************/
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**************文字2行溢出省略号**************/
+
+.text-overflowTow {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/**************文字溢出自动换行**************/
+
+.text-wrap {
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+/**************盒模型**************/
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.content-box {
+  box-sizing: content-box;
+}
+
+.hide {
+  display: none;
+}
+/* 禁止复制 */
+.user-select-no {
+  user-select: none;
+}
+
+/* 添加悬浮小手标志 */
+.pointer {
+  cursor: pointer;
+}
+
+/* 边距 */
+.padding20 {
+  padding: 20px;
+}
+
+/* 上边距 */
+.marginTp20 {
+  margin-top: 20px;
+}
+/* 公共样式 */
+body{
+  background: #f4f4f4;
+  color: #333333;
+  font-size: .373333rem !important;
+}
+
+.title-color{
+  background: #52A5D4;
+}
+
+/* mescroll组件样式 */
+.mescroll {
+  position: fixed;
+  // padding-bottom: 1rem;
+  top: 1.44rem;;
+  bottom: 0;
+  height: auto;
+}
+
+/* 字体加粗 */
+.font-b{
+  font-weight: 700;
+}
+/* minit样式修改 */
+.form-item .mint-cell-wrapper{
+  padding: .266667rem .4rem;
+  background-origin: border-box;
+  background: none !important;
+}
+.form-item-textarea .mint-cell-wrapper{
+  align-items: flex-start;
+}
+.form-item .mint-cell-title{
+  font-size: .373333rem;
+  text-align: right;
+  // padding-left: .266667rem;
+  width: 2.133333rem !important;
+  flex-shrink: 0 !important;
+}
+.form-item .mint-cell-title .mint-cell-text, .form-switch .mint-cell-title .mint-cell-text{
+  position: relative;
+}
+.must .mint-cell-title .mint-cell-text::before{
+  content: '*';
+  position: absolute;
+  color: red;
+  left: -0.266667rem;
+  font-size: .4rem;
+}
+.form-item .mint-cell-value{
+  border: 1px solid #ebebeb;
+  padding: .08rem !important;
+  font-size: .373333rem;
+  border-radius: .053333rem;
+}
+.form-item.mint-cell:last-child, .form-switch.mint-cell:last-child{
+  background-image: none !important;
+}
+.form-switch .mint-cell-title{
+  flex: none;
+}
+.form-switch .mint-cell-wrapper{
+  font-size: .373333rem;
+  padding: .266667rem .4rem;
+  background-image: none !important;
+}
+.form-switch  .mint-cell-title{
+  font-size: .373333rem;
+  text-align: right;
+  width: 2.133333rem !important;
+  flex-shrink: 0 !important;
+}
+.form-switch .mint-switch-input:checked + .mint-switch-core {
+  border-color: #52A5D4;
+  background-color: #52A5D4;
+}
+.lage-lable .mint-cell-title{
+  width: 2.666667rem !important;
+  text-align: left;
+}
+.lage-lable .mint-cell-value{
+  flex: 1;
+  position: relative;
+}
+.lage-lable .mint-cell-value label{
+  position: absolute;
+  right: 0;
+}
+
+.btn-blue{
+  width: 3.73333rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: rgba(50, 50, 253, 0.993);
+  border-radius: 0.5rem;
+  color: #fff;
+}
+
+.swipe-wrap .mint-swipe-indicators .is-active{
+  background: #eee;
+  opacity: 0.8;
+}
