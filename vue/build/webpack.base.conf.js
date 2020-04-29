@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const Happypack = require('happypack');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -18,8 +19,12 @@ const createLintingRule = () => ({
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
 })
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
 
-module.exports = {
+
+
+module.exports = smp.wrap({
   context: path.resolve(__dirname, '../'),
   entry: {
     // app: './src/main.js'
@@ -41,7 +46,7 @@ module.exports = {
   },
   module: {
     rules: [
-      // ...(config.dev.useEslint ? [createLintingRule()] : []),
+      ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -49,7 +54,9 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        //优化添加cache-loader,单个loader使用loader:,多个loader使用use:
+        // loader: 'babel-loader',
+        use: ['cache-loader', 'babel-loader'],
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
@@ -78,6 +85,13 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new Happypack({
+      id: 'js', //和rule中的id=js对应
+      //将之前 rule 中的 loader 在此配置
+      use: ['cache-loader', 'babel-loader'], //必须是数组
+    }),
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
@@ -90,4 +104,4 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   }
-}
+});
